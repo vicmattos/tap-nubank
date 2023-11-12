@@ -4,11 +4,22 @@ from __future__ import annotations
 
 from typing import Iterable
 
+from pynubank import Nubank
+from pynubank import MockHttpClient
 from singer_sdk.streams import Stream
 
 
 class NubankStream(Stream):
     """Stream class for Nubank streams."""
+
+    @property
+    def client(self) -> Nubank:
+        client = Nubank() if not self.config.get("is_testing") else Nubank(MockHttpClient())
+        user = self.config.get("user")
+        password = self.config.get("password")
+        uuid = self.config.get("qrcode_uuid")
+        client.authenticate_with_qr_code(user, password, uuid)
+        return client
 
     def get_records(
         self,
@@ -26,9 +37,5 @@ class NubankStream(Stream):
         Raises:
             NotImplementedError: If the implementation is TODO
         """
-        # TODO: Write logic to extract data from the upstream source.
-        # records = mysource.getall()  # noqa: ERA001
-        # for record in records:
-        #     yield record.to_dict()  # noqa: ERA001
-        errmsg = "The method is not yet implemented (TODO)"
+        errmsg = "The method is not yet implemented at this level. Use `get_records` from the specific stream."
         raise NotImplementedError(errmsg)

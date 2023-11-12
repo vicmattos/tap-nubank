@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href"
+          ]
+        }
+      },
+      "required": [
+        "self"
+      ]
+    },
+    "account": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "integer"
+    },
+    "amount_without_iof": {
+      "type": "integer"
+    },
+    "category": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "subcategory": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "subcategory"
+      ]
+    },
+    "href": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "tokenized": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "_links",
+    "account",
+    "amount",
+    "amount_without_iof",
+    "category",
+    "description",
+    "details",
+    "href",
+    "id",
+    "source",
+    "time",
+    "title",
+    "tokenized"
+  ]
+}

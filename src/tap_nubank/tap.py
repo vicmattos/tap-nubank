@@ -5,8 +5,12 @@ from __future__ import annotations
 from singer_sdk import Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
 
-# TODO: Import your custom stream types here:
-from tap_nubank import streams
+from tap_nubank.streams import NubankStream
+from tap_nubank.streams import CardStatementsStream
+
+STREAM_TYPES = [
+    CardStatementsStream,
+]
 
 
 class TapNubank(Tap):
@@ -17,28 +21,29 @@ class TapNubank(Tap):
     # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property(
-            "auth_token",
+            "user",
             th.StringType,
             required=True,
-            secret=True,  # Flag config as protected.
-            description="The token to authenticate against the API service",
+            description="The flag to mock responses from API",
         ),
         th.Property(
-            "project_ids",
-            th.ArrayType(th.StringType),
-            required=True,
-            description="Project IDs to replicate",
-        ),
-        th.Property(
-            "start_date",
-            th.DateTimeType,
-            description="The earliest record date to sync",
-        ),
-        th.Property(
-            "api_url",
+            "password",
             th.StringType,
-            default="https://api.mysample.com",
-            description="The url for the API service",
+            required=True,
+            secret=True,
+            description="The flag to mock responses from API",
+        ),
+        th.Property(
+            "qrcode_uuid",
+            th.StringType,
+            required=True,
+            secret=True,
+            description="The flag to mock responses from API",
+        ),
+        th.Property(
+            "is_test",
+            th.BooleanType,
+            description="The flag to mock responses from API",
         ),
     ).to_dict()
 
@@ -48,10 +53,7 @@ class TapNubank(Tap):
         Returns:
             A list of discovered streams.
         """
-        return [
-            streams.GroupsStream(self),
-            streams.UsersStream(self),
-        ]
+        return [stream_class(tap=self) for stream_class in STREAM_TYPES]
 
 
 if __name__ == "__main__":

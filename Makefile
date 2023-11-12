@@ -30,3 +30,7 @@ requirements.txt: $(VENV) pyproject.toml
 
 requirements-dev.txt: $(VENV) pyproject.toml
 	$(VENV_EXECS)/pip-compile --extra=dev --output-file=requirements-dev.txt
+
+
+requirements-test.txt: $(VENV) pyproject.toml
+	$(VENV_EXECS)/pip-compile --extra=test --output-file=requirements-test.txt

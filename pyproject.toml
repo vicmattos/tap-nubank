@@ -13,6 +13,7 @@ keywords = [
 # license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = [
+    "pynubank",
     "singer-sdk>=0.33.1,<0.34.0",
 ]
 
@@ -29,6 +30,9 @@ test = [
 s3 = [
     "fs-s3fs>=1.1.1,<1.2.0",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = "src"
 
 [tool.mypy]
 python_version = "3.9"
