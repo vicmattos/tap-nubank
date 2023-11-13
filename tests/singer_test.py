@@ -5,8 +5,8 @@ from singer_sdk.testing import get_tap_test_class
 from tap_nubank.tap import TapNubank
 
 SAMPLE_CONFIG = {
-    'user': 'not important',
-    'password': 'not important',
+    'nubank_user': 'not important',
+    'nubank_password': 'not important',
     'qrcode_uuid': 'not important',
     'is_testing': True,
 }
