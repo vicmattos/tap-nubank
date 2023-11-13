@@ -37,11 +37,34 @@ requirements-test.txt: $(VENV) pyproject.toml
 
 
 .PHONY: setup
-setup: $(VENV) requirements-dev.txt
+setup: $(VENV)
 	$(VENV_EXECS)/pip install -r requirements-dev.txt
+	$(VENV_EXECS)/pre-commit install-hooks
+	$(VENV_EXECS)/pre-commit install
 	$(VENV_EXECS)/pip install -e .
+
+
+.PHONY: format
+format: $(VENV)
+	$(VENV_EXECS)/pre-commit run ruff-format --all-files
+
+
+.PHONY: lint
+lint: $(VENV)
+	$(VENV_EXECS)/pre-commit run ruff --all-files
+	$(VENV_EXECS)/pre-commit run mypy --all-files
 
 
 .PHONY: test
 test: $(VENV)
 	$(VENV_EXECS)/tox -e dev
+
+.PHONY: clean
+clean:
+	rm -rf \
+		.mypy_cache \
+		.ruff_cache \
+		.tox \
+		src/tap_nubank/__pycache__ \
+		src/tap_nubank.egg-info \
+		tests/__pycache__

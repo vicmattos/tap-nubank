@@ -61,10 +61,6 @@ jsonschema-specifications==2023.7.1
     # via jsonschema
 memoization==0.4.0
     # via singer-sdk
-mypy==1.7.0
-    # via tap-nubank (pyproject.toml)
-mypy-extensions==1.0.0
-    # via mypy
 nodeenv==1.8.0
     # via pre-commit
 packaging==23.2
@@ -127,8 +123,6 @@ rpds-py==0.12.0
     # via
     #   jsonschema
     #   referencing
-ruff==0.1.5
-    # via tap-nubank (pyproject.toml)
 simpleeval==0.9.13
     # via singer-sdk
 simplejson==3.19.2
@@ -145,7 +139,6 @@ sqlalchemy==2.0.23
 tomli==2.0.1
     # via
     #   build
-    #   mypy
     #   pip-tools
     #   pyproject-hooks
     #   tox
@@ -153,7 +146,6 @@ tox==3.28.0
     # via tap-nubank (pyproject.toml)
 typing-extensions==4.8.0
     # via
-    #   mypy
     #   singer-sdk
     #   sqlalchemy
 urllib3==1.26.18
