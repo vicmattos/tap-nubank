@@ -2,25 +2,25 @@
 
 from __future__ import annotations
 
-import typing as t
+from collections.abc import Iterable
 from pathlib import Path
+from typing import ClassVar
 
 from tap_nubank.client import NubankStream
 
-SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
+SCHEMAS_DIR = Path(__file__).parent / Path('./schemas')
 
 
 class CardStatementsStream(NubankStream):
     """Define custom stream."""
-    name = "card_statements"
-    primary_keys: t.ClassVar[list[str]] = ["id"]
+
+    name = 'card_statements'
+    primary_keys: ClassVar[list[str]] = ['id']
     replication_key = None
-    schema_filepath = SCHEMAS_DIR / "card_statements.json"  # noqa: ERA001
+    schema_filepath = SCHEMAS_DIR / 'card_statements.json'
 
     def get_records(
         self,
-        context: dict | None,  # noqa: ARG002
+        context: dict | None,
     ) -> Iterable[dict]:
-        client = self.client
-        for record in client.get_card_statements():
-            yield record
+        yield from self.client.get_card_statements()

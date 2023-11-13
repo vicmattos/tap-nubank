@@ -20,6 +20,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pip-tools",
+    "pre-commit",
     "tox",
     "ruff",
     "mypy",
@@ -34,29 +35,36 @@ s3 = [
 
 [tool.pytest.ini_options]
 pythonpath = "src"
-
-[tool.mypy]
-python_version = "3.9"
-warn_unused_configs = true
-
 [tool.ruff]
-ignore = [
-    "ANN101",  # missing-type-self
-    "ANN102",  # missing-type-cls
+include = ["src/**/*.py", "tests/**/*.py"]
+fix = true
+line-length = 100
+select = [
+    "A",    # flake8-builtins: check builtins used as variables or parameters
+    "B",    # flake8-bugbear: security warnings
+    "E",    # pycodestyle-errors
+    "F",    # pyflakes
+    "I",    # isort
+    "UP",   # pyupgrade: better syntax for python version
+    "RUF",  # ruff
 ]
-select = ["ALL"]
-src = ["tap_nubank"]
-target-version = "py37"
 
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.isort]
+force-single-line = true
+known-first-party = ["tap_nubank"]
 
 [tool.ruff.flake8-annotations]
 allow-star-arg-any = true
 
-[tool.ruff.isort]
-known-first-party = ["tap_nubank"]
-
 [tool.ruff.pydocstyle]
 convention = "google"
+
+[tool.mypy]
+python_version = "3.9"
+warn_unused_configs = true
 
 [build-system]
 requires = ["setuptools"]

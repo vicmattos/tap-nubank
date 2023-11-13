@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from collections.abc import Iterable
 
-from pynubank import Nubank
 from pynubank import MockHttpClient
+from pynubank import Nubank
 from singer_sdk.streams import Stream
 
 
@@ -14,16 +14,16 @@ class NubankStream(Stream):
 
     @property
     def client(self) -> Nubank:
-        client = Nubank() if not self.config.get("is_testing") else Nubank(MockHttpClient())
-        user = self.config.get("user")
-        password = self.config.get("password")
-        uuid = self.config.get("qrcode_uuid")
+        client = Nubank() if not self.config.get('is_testing') else Nubank(MockHttpClient())
+        user = self.config.get('user')
+        password = self.config.get('password')
+        uuid = self.config.get('qrcode_uuid')
         client.authenticate_with_qr_code(user, password, uuid)
         return client
 
     def get_records(
         self,
-        context: dict | None,  # noqa: ARG002
+        context: dict | None,
     ) -> Iterable[dict]:
         """Return a generator of record-type dictionary objects.
 
@@ -37,5 +37,6 @@ class NubankStream(Stream):
         Raises:
             NotImplementedError: If the implementation is TODO
         """
-        errmsg = "The method is not yet implemented at this level. Use `get_records` from the specific stream."
+        errmsg = 'The method is not yet implemented at this level. \
+            Use `get_records` from the specific stream.'
         raise NotImplementedError(errmsg)
