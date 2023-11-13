@@ -108,7 +108,7 @@ typing-extensions==4.8.0
     # via
     #   singer-sdk
     #   sqlalchemy
-urllib3==1.26.18
+urllib3==2.1.0
     # via
     #   requests
     #   singer-sdk
