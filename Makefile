@@ -34,3 +34,14 @@ requirements-dev.txt: $(VENV) pyproject.toml
 
 requirements-test.txt: $(VENV) pyproject.toml
 	$(VENV_EXECS)/pip-compile --extra=test --output-file=requirements-test.txt
+
+
+.PHONY: setup
+setup: $(VENV) requirements-dev.txt
+	$(VENV_EXECS)/pip install -r requirements-dev.txt
+	$(VENV_EXECS)/pip install -e .
+
+
+.PHONY: test
+test: $(VENV)
+	$(VENV_EXECS)/tox -e dev
