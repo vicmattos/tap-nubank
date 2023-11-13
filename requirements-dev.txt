@@ -142,7 +142,7 @@ tomli==2.0.1
     #   pip-tools
     #   pyproject-hooks
     #   tox
-tox==3.28.0
+tox==4.11.3
     # via tap-nubank (pyproject.toml)
 typing-extensions==4.8.0
     # via
