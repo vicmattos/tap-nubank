@@ -26,7 +26,7 @@ click==8.1.7
     # via
     #   pip-tools
     #   singer-sdk
-colorama==0.4.3
+colorama==0.4.6
     # via pynubank
 cryptography==41.0.5
     # via

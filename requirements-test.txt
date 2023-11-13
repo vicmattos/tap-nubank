@@ -20,7 +20,7 @@ charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via singer-sdk
-colorama==0.4.3
+colorama==0.4.6
     # via pynubank
 cryptography==41.0.5
     # via
