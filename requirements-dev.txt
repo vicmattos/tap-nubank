@@ -88,7 +88,7 @@ pyjwt==2.8.0
     # via singer-sdk
 pynubank==2.25.0
     # via tap-nubank (pyproject.toml)
-pyopenssl==23.2.0
+pyopenssl==23.3.0
     # via
     #   pynubank
     #   requests-pkcs12
