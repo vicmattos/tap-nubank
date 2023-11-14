@@ -1,6 +1,5 @@
 PYTHON_CMD = python3
-PYTHON_VERSION = 3.10 # search:pyversion
-# PYTHON_VERSION = $(shell $(PYTHON) -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+PYTHON_VERSION = 3.10
 VENV = .venv
 VENV_EXECS=$(VENV)/bin
 VIRTUALENV_EXEC = virtualenv.pyz

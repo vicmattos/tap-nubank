@@ -54,21 +54,19 @@ tap-nubank --config CONFIG --discover > ./catalog.json
 Follow these instructions to contribute to this project.
 
 ### Requirements
-- Python >=3.10
+- pyenv (with python3.10 installed)
 - Make (optional, but highly recomended)
   - git-bash for windows users (or other unix shell interpreter)
 
 ### Initialize your Development Environment
 
-1. Set `PYTHON_VERSION` variable in `Makefile` if you're not using 3.10
-2. Run the following command:
 ```bash
 make setup
 ```
-3. (If not using python3.10) Search for `search:pyversion` in project to change reference for the one you're using
 
 ### Run Tests
 
+**After** setting up the development environment, run:
 ```bash
 make test
 ```
