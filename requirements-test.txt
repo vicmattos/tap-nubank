@@ -47,7 +47,7 @@ jsonpath-ng==1.6.0
     # via singer-sdk
 jsonschema==4.19.2
     # via singer-sdk
-jsonschema-specifications==2023.7.1
+jsonschema-specifications==2023.11.1
     # via jsonschema
 memoization==0.4.0
     # via singer-sdk
@@ -90,7 +90,7 @@ pyyaml==6.0.1
     # via singer-sdk
 qrcode==7.3.1
     # via pynubank
-referencing==0.30.2
+referencing==0.31.0
     # via
     #   jsonschema
     #   jsonschema-specifications
