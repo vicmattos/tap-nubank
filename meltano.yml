@@ -16,8 +16,8 @@ plugins:
     - about
     - stream-maps
     settings:
-    - name: nubank_user
-    - name: nubank_password
+    - name: user
+    - name: password
       kind: password
     - name: qrcode_uuid
       kind: password

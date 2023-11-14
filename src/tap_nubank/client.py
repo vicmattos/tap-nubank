@@ -14,7 +14,7 @@ class NubankStream(Stream):
 
     @property
     def client(self) -> Nubank:
-        client = Nubank() if not self.config.get('is_testing') else Nubank(MockHttpClient())
+        client = Nubank() if not self.config.get('is_test') else Nubank(MockHttpClient())
         user = self.config.get('user')
         password = self.config.get('password')
         uuid = self.config.get('qrcode_uuid')

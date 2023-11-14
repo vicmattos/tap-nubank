@@ -20,13 +20,13 @@ class TapNubank(Tap):
 
     config_jsonschema = th.PropertiesList(
         th.Property(
-            'nubank_user',
+            'user',
             th.StringType,
             required=True,
             description='User from Nubank',
         ),
         th.Property(
-            'nubank_password',
+            'password',
             th.StringType,
             required=True,
             secret=True,
