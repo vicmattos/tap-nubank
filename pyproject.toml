@@ -19,6 +19,7 @@ dependencies = [
 
 [project.scripts]
 tap-nubank = 'tap_nubank.tap:TapNubank.cli'
+tap-nubank-auth = 'tap_nubank.helper.auth:cli'
 
 [build-system]
 requires = ["setuptools"]

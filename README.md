@@ -25,6 +25,15 @@ pipx install git+https://github.com/vicmattos/tap-nubank.git@main
 
 A full list of supported settings and capabilities is available by running: `tap-nubank --about`
 
+### Retrieving UUID from Authentication
+
+You can retrieve UUID with the following command:
+```bash
+tap-nubank-auth -u YOUR_USER -p YOUR_PASSWORD
+```
+
+hint: Add a space at the command's beginning so that it doesn't get recorded in shell's history.
+
 ### Configure using environment variables
 
 This Singer tap will automatically import any environment variables within the working directory's
